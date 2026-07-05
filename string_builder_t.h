@@ -26,8 +26,7 @@ sb_status sb_to_upper_case(string_builder_t* sb);
 sb_status sb_to_lower_case(string_builder_t* sb);
 sb_status sb_replace_all_chars_with(string_builder_t* sb, const char toReplaceWith);
 sb_status sb_replace_value_with(string_builder_t* sb, const char* toReplaceWith);
-sb_status sb_replace(string_builder_t* sb, const int start, const int end,
-                     const char* toReplaceWith);
+sb_status sb_replace(string_builder_t* sb, const char* toReplaceWith, const int start, const int end);
 sb_status sb_delete_char_at(string_builder_t* sb, const int index);
 sb_status sb_delete(string_builder_t* sb, const int start, const int end);
 
