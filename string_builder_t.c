@@ -101,11 +101,11 @@ string_builder_t* sb_allocate_new(const int capacity) {
 }
 
 
-string_builder_t* sb_new() { return sb_allocate_new(sb_basic_capacity); }
+string_builder_t* sb_create() { return sb_allocate_new(sb_basic_capacity); }
 
 string_builder_t* sb_from_string(const char* initialStr) {
     int len = strlen(initialStr);
-    string_builder_t* to_return = sb_new();
+    string_builder_t* to_return = sb_create();
     if (to_return == NULL) return NULL;
 
     ensure_capacity(to_return, len);
@@ -125,7 +125,7 @@ string_builder_t* sb_substring(const string_builder_t* sb, const int start, cons
     }
 
     int len = end - start;
-    string_builder_t* to_return = sb_new();
+    string_builder_t* to_return = sb_create();
     if (to_return == NULL) return NULL;
 
     sb_status status2 = ensure_capacity(to_return, len);
@@ -313,7 +313,7 @@ sb_status sb_to_upper_case(string_builder_t* sb) {
     int len = sb->count;
     char* value = sb->value;
 
-    for (int i; i < len; i++) {
+    for (int i = 0; i < len; i++) {
         char* current_char_p = &value[i];
         if (*current_char_p >= 'a' && *current_char_p <= 'z')
             *current_char_p = *current_char_p - shift;

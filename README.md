@@ -19,7 +19,7 @@ Use `sb_handle_status(status)` to print a human-readable message for a status co
 ## Creating a string builder
 
 ```c
-string_builder_t* sb_new();
+string_builder_t* sb_create();
 ```
 Creates an empty string builder with a default capacity (1024).
 
