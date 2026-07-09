@@ -365,3 +365,25 @@ sb_status sb_delete(string_builder_t* sb, const int start, const int end) {
     sb->count = final_length;
     return SB_OK;
 }
+
+int sb_is_value_equal(string_builder_t* sb1, string_builder_t* sb2){
+    int len = sb1->count;
+    sb_status s1 = check_standard_errors(sb1, false_malloc, 4);
+    sb_status s2 = check_standard_errors(sb2, false_malloc, 4);
+    if(s1 != SB_OK){
+        sb_handle_status(s1);
+        return -1;
+    }
+    if(s1 != SB_OK){
+        sb_handle_status(s2);
+        return -1;
+    }
+
+    if(len != sb2->count) return 0;
+    char* sb1v = sb1->value;
+    char* sb2v = sb2->value;
+    for(int i = 0; i<len; i++){
+        if(sb1v[i] != sb2v[i]) return 0;
+    }
+    return 1;
+}

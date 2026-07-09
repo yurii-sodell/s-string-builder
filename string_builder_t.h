@@ -30,6 +30,7 @@ sb_status sb_replace(string_builder_t* sb, const char* toReplaceWith, const int 
                      const int end);
 sb_status sb_delete_char_at(string_builder_t* sb, const int index);
 sb_status sb_delete(string_builder_t* sb, const int start, const int end);
+int sb_is_value_equal(string_builder_t* sb1, string_builder_t* sb2);
 int sb_get_struct_size();
 
 void sb_handle_status(sb_status status);
